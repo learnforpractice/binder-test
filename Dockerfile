@@ -19,6 +19,9 @@ RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
 RUN wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.7.0/eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
 RUN apt install -y ./eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
 RUN rm ./eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
+RUN wget https://github.com/learnforpractice/binder-test/releases/download/0.1/release.tar.gz
+RUN tar -xzf release.tar.gz
+RUN rm release.tar.gz
 
 COPY . ${HOME}
 ## Enable this to copy files from the binder subdirectory
