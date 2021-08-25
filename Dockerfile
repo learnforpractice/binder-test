@@ -26,6 +26,7 @@ RUN rm release.tar.gz
 COPY . ${HOME}
 RUN ln -s ${HOME}/uuosio.gscdk/bin/tinygo /usr/local/bin/tinygo
 RUN ln -s ${HOME}/uuosio.gscdk/bin/eosio-go /usr/local/bin/eosio-go
+RUN ln -s /usr/local/go/bin/go /usr/local/bin/go
 
 ## Enable this to copy files from the binder subdirectory
 ## to the home, overriding any existing files.
