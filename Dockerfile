@@ -40,5 +40,5 @@ USER ${NB_USER}
 
 ## Run an install.R script, if it exists.
 RUN if [ -f install.R ]; then R --quiet -f install.R; fi
-RUN python3 -m pip install https://github.com/uuosio/UUOSKit/releases/download/v0.8.3/uuoskit-0.8.3-cp37-cp37m-linux_x86_64.whl
+RUN python3 -m pip install https://github.com/uuosio/UUOSKit/releases/download/v0.8.4/uuoskit-0.8.4-cp37-cp37m-linux_x86_64.whl
 
