@@ -24,6 +24,9 @@ RUN tar -xzf release.tar.gz
 RUN rm release.tar.gz
 
 COPY . ${HOME}
+RUN ln -s ${HOME}/uuosio.gscdk/bin/tinygo /usr/local/bin/tinygo
+RUN ln -s ${HOME}/uuosio.gscdk/bin/eosio-go /usr/local/bin/eosio-go
+
 ## Enable this to copy files from the binder subdirectory
 ## to the home, overriding any existing files.
 ## Useful to create a setup on binder that is different from a
