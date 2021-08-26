@@ -16,17 +16,21 @@ RUN apt install -y clang
 RUN apt install -y git
 RUN wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
+RUN ln -sf /usr/local/go/bin/go /usr/local/bin/go
+
 RUN wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.7.0/eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
 RUN apt install -y ./eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
 RUN rm ./eosio.cdt_1.7.0-1-ubuntu-18.04_amd64.deb
+
 RUN wget https://github.com/learnforpractice/binder-test/releases/download/0.1/release.tar.gz
-RUN tar -xzf release.tar.gz
+RUN tar -C /usr/local -xzf release.tar.gz
+RUN ln -sf /usr/local/uuosio.gscdk/bin/tinygo /usr/local/bin/tinygo
+RUN ln -sf /usr/local/uuosio.gscdk/bin/eosio-go /usr/local/bin/eosio-go
+RUN ln -sf /usr/local/uuosio.gscdk/bin/eosio-strip /usr/local/bin/eosio-strip
+
 RUN rm release.tar.gz
 
 COPY . ${HOME}
-RUN ln -s ${HOME}/uuosio.gscdk/bin/tinygo /usr/local/bin/tinygo
-RUN ln -s ${HOME}/uuosio.gscdk/bin/eosio-go /usr/local/bin/eosio-go
-RUN ln -s /usr/local/go/bin/go /usr/local/bin/go
 
 ## Enable this to copy files from the binder subdirectory
 ## to the home, overriding any existing files.
